@@ -53,7 +53,7 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    
+                    cd Jenkins-Learnings
                     git config user.name "SharmajiKabetaDevesh"
                     git config user.name "deveshrs2016@gmail.com"
                     BUILD_NUMBER=${BUILD_NUMBER}
