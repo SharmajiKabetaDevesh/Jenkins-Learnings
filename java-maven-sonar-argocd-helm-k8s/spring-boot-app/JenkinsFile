@@ -58,6 +58,7 @@ pipeline {
                      git config --global user.email deveshrs2016@gmail.com
                      git config --global user.name ${USERNAME}
                      git config --global user.password ${PASSWORD}
+                    git config --global --add safe.directory /var/lib/jenkins/workspace/PIP
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
