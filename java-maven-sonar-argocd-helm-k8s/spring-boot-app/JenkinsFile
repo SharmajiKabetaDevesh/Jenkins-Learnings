@@ -54,7 +54,9 @@ pipeline {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
                     ls
+                    cd ..
                     git init
+                    cd Jenkins-Learnings
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     cat java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git config user.email "deveshrs2016@gmail.com"
