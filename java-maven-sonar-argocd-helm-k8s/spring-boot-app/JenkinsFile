@@ -53,6 +53,7 @@ pipeline {
         steps {
             withCredentials([usernamePassword(credentialsId: 'github', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                 sh '''
+                   ls 
                     cd Jenkins-Learnings
                      git config --global user.email deveshrs2016@gmail.com
                      git config --global user.name ${USERNAME}
