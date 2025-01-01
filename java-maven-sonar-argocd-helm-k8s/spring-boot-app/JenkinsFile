@@ -52,17 +52,14 @@ pipeline {
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
-                sh '''
+                sh ''' 
                     ls
-                    cd ..
-                    git init
-                    cd Jenkins-Learnings
-                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
-                    cat java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+                    git pull https://github.com/SharmajiKabetaDevesh/Jenkins-Learnings.git
                     git config user.email "deveshrs2016@gmail.com"
                     git config user.name "SharmajiKabetaDevesh"
                     BUILD_NUMBER=${BUILD_NUMBER}
                     git config --global --add safe.directory "*"
+                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
