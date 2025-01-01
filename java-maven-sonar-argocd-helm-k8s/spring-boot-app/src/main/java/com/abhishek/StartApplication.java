@@ -13,7 +13,7 @@ public class StartApplication {
     @GetMapping("/")
     public String index(final Model model) {
         model.addAttribute("title", "Moshi Mosh Everyone,This app is running on Azure Kubernetes Services");
-        model.addAttribute("msg", "It took me 53 tries to deploy it using jenkins and argoCd");
+        model.addAttribute("msg", "It took me 13 tries to deploy it using jenkins and argoCd");
         model.addAttribute("msg", "I can't say I have mastered Jenkins,Kubernetes,ArgoCs,SonarQube etc but I have learned to use a part of it.");
         return "index";
     }
