@@ -22,7 +22,7 @@ pipeline {
                     git config user.name "SharmajiKabetaDevesh"
                     export version=${BUILD_NUMBER}
                     export prev_version=$((version-1))
-                    sed -i "s/${prev_version}/version/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+                    sed -i "s/${prev_version}/${version}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     cat java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git commit -m "Update deployment image to version ${version}"
